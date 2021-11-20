@@ -3,7 +3,7 @@ int die_pins [] = {3, 4, 5, 8, 11, 12};
 int button_pin = 2;
 
 void setup() {
-  //Serial.begin(9600);
+  Serial.begin(9600);
   //Serial.println("Setting up the die...");
   for (int i = 0; i < 6; i++) {
     pinMode(die_pins[i], OUTPUT);
@@ -13,6 +13,7 @@ void setup() {
   for (int i = 0; i < 6; i++) {
     digitalWrite(die_pins[i], LOW);
   }
+  randomSeed(analogRead(0));
   startup();
 }
 
@@ -51,8 +52,8 @@ void roll() {
 }
 void showresult() {
   int r = random(6);
-  //Serial.print("Die result: ");
-  //Serial.println(r);
+  Serial.print("Die result: ");
+  Serial.println(r);
 
   digitalWrite(die_pins[r], HIGH);
 }
