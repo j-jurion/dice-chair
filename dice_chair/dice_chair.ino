@@ -4,7 +4,7 @@ int button_pin = 2;
 
 void setup() {
   Serial.begin(9600);
-  //Serial.println("Setting up the die...");
+  Serial.println("Setting up the die...");
   for (int i = 0; i < 6; i++) {
     pinMode(die_pins[i], OUTPUT);
   }
@@ -19,8 +19,8 @@ void setup() {
 
 void loop() {
   switchState = digitalRead(button_pin);
-  //Serial.print("Switch state: ");
-  //Serial.println(switchState);
+  Serial.print("Switch state: ");
+  Serial.println(switchState);
   if (switchState == HIGH) {
     roll();
   }
@@ -40,7 +40,7 @@ void startup() {
   }
 }
 void roll() {
-  //Serial.println("Rolling...");
+  Serial.println("Rolling...");
   for (int j = 0; j < 4; j++) {
     for (int i = 0; i < 6; i++) {
       digitalWrite(die_pins[i], HIGH);
